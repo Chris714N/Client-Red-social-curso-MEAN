@@ -1,0 +1,95 @@
+<div class="">
+    <h1 class="h1-strong text-muted" *ngIf="!viewToggle">{{title}}</h1>
+    <h3 class="h1-strong text-muted" *ngIf="viewToggle">¿Qué datos deseas actualizar?</h3>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="alert alert-success" *ngIf="status == 'success'">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Se han actualizado tus datos correctamente!
+        </div>
+        <div class="alert alert-danger" *ngIf="status == 'error'">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Error al actualizar tus datos.
+        </div>
+        <div>
+            <button type="button" *ngIf="viewToggle" class="btn btn-success btn-sm btn-block margen-b" (click)="mostrar()">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+            <button type="button" *ngIf="!viewToggle" class="btn btn-warning btn-sm btn-block margen-b" (click)="mostrar()">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                Datos de usuario.
+            </div>
+            <div class="panel-body">
+                <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="col-sm-12 ">
+                    <p>
+                        <label>Nombre</label>
+                        <input type="text" placeholder="Nombre" id="name" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control"
+                            pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9._-]{4,32}$" required/>
+                        <span *ngIf="!name.valid && name.touched">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Atención!</strong> El nombre es obligatorio.
+                            </div>
+                        </span>
+                    </p>
+
+                    <p>
+                        <label>Apellido</label>
+                        <input type="text" placeholder="Apellidos" id="surname" name="surname" #surname="ngModel" [(ngModel)]="user.surname" class="form-control"
+                            pattern="[a-zA-Z0-9._-]{4,32}$" required/>
+                        <span *ngIf="!surname.valid && surname.touched">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Atención!</strong> El apellido es obligatorio.
+                            </div>
+                        </span>
+                    </p>
+
+                    <p>
+                        <label>Nick</label>
+                        <input type="text" placeholder="Nick name" id="nick" name="nick" #nick="ngModel" [(ngModel)]="user.nick" class="form-control"
+                            pattern="[A-Za-z0-9._-]{4,32}$" required/>
+                        <span *ngIf="!nick.valid && nick.touched">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Atención!</strong> El nick es obligatorio.
+                            </div>
+                        </span>
+                    </p>
+
+                    <p>
+                        <label>Correo electrónico</label>
+                        <input type="text" placeholder="Example@ccrop.cl" id="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+                        <span *ngIf="!email.valid && email.touched">
+                            <div *ngIf="viewToggle" class="alert alert-danger" role="alert">
+                                <strong>Atención!</strong> El Correo electrónico no es válido.
+                            </div>
+                        </span>
+
+                    </p>
+                    
+                    <div *ngIf="user.image">
+                        <img src="{{url + 'get-image-user/' + user.image}}" width="100" height="100"/>
+                    </div>
+
+
+                    <p *ngIf="viewToggle" class="well">
+                        <label>Sube tu avatar</label>
+                        <input type="file" placeholder="Subir imagen" id="avatar" name="avatar" (change)="fileChangeEvent($event)" />
+                    </p>
+
+                    <input type="submit" *ngIf="viewToggle" value="{{title}}" class="btn btn-danger" [disabled]="!loginForm.form.valid" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

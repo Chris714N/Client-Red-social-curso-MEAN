@@ -1,0 +1,69 @@
+<div class="col-sm-8">
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+    <div class="row content-refresh">
+        <span class="span-refresh" (click)="refresh()">
+            <span class="glyphicon glyphicon-repeat"> Refrescar</span>
+        </span>
+    </div>
+    <div id="publications">
+        <div *ngFor="let publication of publications" class="item-publication">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    
+                    <div class="header-publication">
+                        <span>
+                            <div class="image-user pull-left">
+                                <a href="#">
+                                    <img src="{{ url + 'get-image-user/' + publication.user.image}}" alt="thumb" width="40" height="40" *ngIf="publication.user.image">
+                                    <img src="assets/user.png" alt="thumb" width="40" height="40" *ngIf="!publication.user.image">
+                                </a>
+                            </div>
+                            
+                        </span>
+                        
+                        <div>
+                            <div class="publication-name-surname">
+                                <span>
+                                    <a href="#">
+                                        {{publication.user.name + ' ' + publication.user.surname}}
+                                    </a>
+                                </span>
+                                <span class="date">
+                                    {{ (publication.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}
+                                </span>
+                            </div>
+                            
+                            <div class="publication-nick">
+                                <p>
+                                    {{publication.user.nick}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-text">
+                        <label>
+                            {{publication.text}}
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12 btn-ver-mas">
+            <p>
+                <button id="btn-more" class="btn btn-success" (click)="viewMore()" *ngIf="page < pages">
+                    Ver más publicaciones
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<app-sidebar (sended)="refresh()"></app-sidebar>
+<div class="clearfix"></div>

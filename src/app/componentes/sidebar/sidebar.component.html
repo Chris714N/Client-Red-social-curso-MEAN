@@ -1,0 +1,103 @@
+<div class="col-sm-4 sidebar-content">
+
+    <div>
+        <h3 class="h3-title-sidebar">
+            Mi perfil
+        </h3>
+    </div>
+
+    <div id="user-card" class="panel panel-default pull-left ">
+        <div class="avatar pull-left">
+            <img src="{{ url+'get-image-user/'+identity.image}}" alt="thumb" width="60" height="60" *ngIf="identity.image">
+            <img src="assets/user.png" alt="thumb" width="60" height="60" *ngIf="!identity.image">
+        </div>
+
+        <div class="name-surname pull-left">
+            <a href="#" class="username">
+                {{identity.name + ' ' + identity.surname}}
+            </a>
+            <p class="nickname">
+                {{identity.nick}}
+            </p>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="stats" *ngIf="stats">
+            <div class="following-data">
+                <a href="#">
+                    <span class="label-stats">
+                        Siguiendo
+                    </span>
+                    <span class="number-stats">
+                        {{stats.following}}
+                    </span>
+                </a>
+            </div>
+
+            <div class="following-data">
+                <a href="#">
+                    <span class="label-stats">
+                        Seguidores
+                    </span>
+                    <span class="number-stats">
+                        {{stats.followed}}
+                    </span>
+                </a>
+            </div>
+
+            <div class="following-data">
+                <a [routerLink]="['/timeline']" [routerLinkActive]="['active']">
+                    <span class="label-stats">
+                        Publicaciones
+                    </span>
+                    <span class="number-stats">
+                        {{stats.publications}}
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Formulario de publicaciones -->
+    <div id="new-publication" class="">
+        <h3 class="h3-title-sidebar pull-left">
+            Crear publicación
+        </h3>
+
+        <form #newPubForm="ngForm" (ngSubmit)="onSubmit(newPubForm);sendPublication($event);" class="col-sm-10 panel panel-default pull-left" id="user-card">
+            <p>
+                <label class="label-upload-publication">¿ qué piensas hoy ?</label>
+                <textarea placeholder="Escribe tu mensaje..." id="text" name="text" #text="ngModel" [(ngModel)]="publication.text" class="form-control"
+                    pattern="([A-Za-z0-9.,^*+´-\s]{1,1024})" required></textarea>
+            </p>
+
+            <div class="upload-content upload-content-border">
+
+                <div class="fileUpload span-find-image">
+                    <span>Buscar</span>
+                    <input id="uploadBtn" type="file" title="Buscar imagen" class="upload" (change)="uploadDesing()" />
+                </div>
+
+                <div class="label-upload-publication">
+                    <label id="uploadFile" class=""  disabled="disabled" *ngIf="value != ''">
+                        {{value}}
+                    </label>
+                    <label id="uploadFile" class="" disabled="disabled" *ngIf="value == ''">
+                        Subir imagen
+                    </label>
+                </div>
+
+
+
+            </div>
+
+            <div class="upload-content">
+                <input type="submit" value="Enviar" class="button-form-publication" [disabled]="!newPubForm.form.valid" />
+            </div>
+        </form>
+    </div>
+</div>

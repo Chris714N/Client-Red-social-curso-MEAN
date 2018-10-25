@@ -1,0 +1,53 @@
+<div class="page-header">
+    <h1 class="h1-strong text-muted">{{title}}
+        <h3 class="text-muted">Comienza a compartir tú vida social</h3>
+    </h1>
+</div>
+
+<div class="col-sm-6 col-sm-offset-3">
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        Te has identificado correctamente, bienvenido.
+    </div>
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        No te has podido identificar correctamente.
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            Panel de inicio de sesión.
+        </div>
+        <div class="panel-body">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="col-md-12">
+                <p>
+                    <label>Correo electrónico</label>
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        autofocus required/>
+                    <span *ngIf="!email.valid && email.touched">
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Atención!</strong> El Correo electrónico no es válido.
+                        </div>
+                    </span>
+                </p>
+
+                <p>
+                    <label>Contraseña</label>
+                    <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" pattern="[A-Za-z0-9!._?-]{4,32}"
+                        required/>
+                    <span *ngIf="!password.valid && password.touched">
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Atención!</strong> La Contraseña es obligatoria.
+                        </div>
+                    </span>
+                </p>
+
+                <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!loginForm.form.valid" />
+            </form>
+        </div>
+    </div>
+</div>

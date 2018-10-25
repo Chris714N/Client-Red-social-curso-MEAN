@@ -1,1 +1,557 @@
 /* You can add global styles to this file, and also import other style files */
+/*Generales*/
+.h1-strong {
+    font-size: 35px;
+    font-weight: bold;
+    align-content: center;
+    margin-left: 0%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+
+.active {
+    background: rgb(153, 152, 152) !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+.jumbotron {
+    padding: 20px;
+    border-radius: 15px;
+    align-content: center;
+    text-align: center;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.margen-b {
+    margin-bottom: 10px !important;
+    align-content: center !important; 
+    text-align: center !important;
+}
+
+/*Cabecera*/
+.navigation {
+    margin: 0px;
+    padding: 0px !important;
+    width: 100%;
+}
+
+.navigation .navbar {
+    border-radius: 0px !important;
+    width: 100%;
+}
+
+.navigation .navbar a:hover {
+    background: grey !important;
+}
+
+.navigation .navbar a:focus {
+    background: rgb(153, 152, 152) !important;
+}
+
+.navigation .navbar .dropdown-menu a:hover {
+    background: rgb(219, 219, 221) !important;
+}
+
+.navigation .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+    margin-right: 2px;
+    margin-bottom: 4px;
+}
+
+.navigation .avatar .img {
+    width: 40px;
+    align-content: center;
+}
+
+/*Gente*/
+.image-user {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.image-user .img {
+    width: 40px;
+    height: 40px;
+}
+
+.name-surname {
+    cursor: default;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    padding-left: 10px;
+    color: slategray;
+    font-weight: bold;
+}
+
+.name-surname a:hover{
+    color: darkred;
+    transition: all 800ms !important;
+    text-decoration: none;
+}
+
+.nickname {
+    cursor: default;
+    font-weight: bold;
+    color: #a9a9a9;
+    font-size: 14px;
+    margin-left: 10px;
+    padding-left: 62px;
+}
+
+
+
+.people {
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+}
+
+.btn-primary {
+    transition: 800ms !important;
+    border-radius: 0px !important;
+}
+
+.btn-danger {
+    transition: 800ms !important;
+    border-radius: 0px !important;
+}
+
+.btn-success {
+    transition: 800ms !important;
+    border-radius: 0px !important;
+}
+
+/*Sidebar*/
+
+
+.h3-title-sidebar {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    color: dimgrey;
+    border-bottom: 1px solid darkgray;
+    /* border-right: 1px solid darkgray; */
+    background-color: rgb(253, 253, 253) !important;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 20%;
+    width: 100%;
+}
+
+#user-card {
+    padding: 5px;
+    margin-top: 2px;
+    background: rgba(253, 253, 253) !important;
+    border-radius: 5%;
+    border-left: 2px solid darkgray;
+    border-right: 2px solid darkgray;
+    position: relative;
+    border-top: none;
+    border-bottom: none;
+    width: 100%;
+}
+
+#user-card .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+#user-card .name-surname {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+#user-card .name-surname a{
+    color: gray;
+    transition: all 800ms !important;
+}
+
+#user-card .name-surname .username:hover{
+    text-decoration: none;
+    color: darkred;
+    transition: all 800ms !important;
+}
+
+#user-card .name-surname .nickname{
+    color: darkgray;
+}
+
+#user-card .stats a{
+    text-decoration: none;
+}
+
+#user-card .stats a:hover .number-stats{
+    color: gray;
+}
+
+#user-card .stats a:hover .label-stats{
+    color: darkred;
+}
+
+#user-card .label-stats,
+#user-card .number-stats {
+    display: block;
+    color: gray;
+    transition: all 800ms;
+}
+
+#user-card .label-stats {
+    font-weight: bold;
+}
+
+#user-card .number-stats {
+    font-weight: bold;
+    color: darkred;
+    align-content: center;
+    text-align: center;
+}
+
+#user-card .following-data {
+    margin-top: 10px;
+    float: left;
+    margin-left: 4px;
+    padding-right: 6px;
+    border-right: 1px solid darkgray;
+    
+}
+
+#user-card .following-data:last-child {
+    border: none;
+}
+
+.sidebar-content {
+    margin-top: 52px;
+    position: absolute;
+    margin-left: -6px;
+    border-left: 1px solid whitesmoke !important;
+}
+
+/*Publication*/
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.upload-content {
+    border-radius: 10%;
+    margin: 10px;
+    text-align: center;
+    align-content: center;
+    padding: 5px;
+}
+
+.upload-content-border {
+    border-radius: 10%;
+    border-bottom: 1px solid gray !important;
+    border-top: 1px solid gray !important;
+}
+
+.label-upload-publication {
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.span-find-image {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(51, 122, 183); /*  */
+    border: none;
+    color: white;
+    padding: 6px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: all 800ms;
+}
+
+.span-find-image:hover {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(253, 253, 253);; /*  */
+    border: none;
+    color: black;
+    padding: 6px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: all 800ms;
+}
+
+.button-form-publication {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #5cb85c; /*  */
+    border: none;
+    color: rgb(253, 253, 253);
+    padding: 6px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: all 800ms;
+}
+
+.button-form-publication:hover,:disabled {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(253, 253, 253); /*  */
+    border: none;
+    color: black;
+    padding: 6px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: all 800ms;
+}
+
+.button-form-publication:disabled {
+    cursor: not-allowed;
+}
+
+
+/*Timeline*/
+.content-refresh {
+    text-align: right;
+    padding-right: 14px;
+    padding-bottom: 10px;
+    border: none;
+    position: fixed;
+}
+
+.span-refresh {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+    background-color: rgb(253, 253, 253);; /*  */
+    color: grey;
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 800ms;
+}
+
+.span-refresh:hover {
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(243, 243, 243);; /*  */
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 800ms;
+}
+
+
+.image-user {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-top: 2px;
+    margin-right: 15px;
+    margin-left: 15px;
+    align-content: center;
+    transition: 800ms;
+}
+.image-user:hover{
+    width: 42px;
+    height: 42px;
+    transition: 800ms;
+    align-content: center;
+}
+
+.image-user:hover img{
+    width: 42px;
+    height: 42px;
+    transition: 800ms;
+    align-content: center;
+}
+
+.image-user img{
+    width: 40px;
+    height: 40px;
+    transition: 800ms;
+    align-content: center;
+}
+
+.image-user:hover{
+    width: 42px;
+    height: 42px;
+    transition: 800ms;
+    align-content: center;
+}
+
+.publication-name-surname {
+    cursor: default;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    padding-left: 62px;
+}
+
+.publication-name-surname a{
+    color: gray;
+    transition: all 800ms !important;
+    
+}
+
+.date{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:  #a9a9a9;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 8px;
+    float: right;
+}
+
+.publication-name-surname a:hover{
+    color: darkred;
+    transition: all 800ms !important;
+    text-decoration: none;
+}
+
+.publication-nick {
+    cursor: default;
+    font-weight: bold;
+    color: #a9a9a9;
+    font-size: 14px;
+    margin-left: 10px;
+    padding-left: 62px;
+}
+
+.publication-text {
+    display: block;
+    width: 90%;
+    margin: 10px; 
+    cursor: default;
+    white-space: pre-wrap;
+    border-top: 0px solid white;
+    transition: all 800ms !important;
+}
+
+.publication-text:hover {
+    border-radius: 2px;
+    border-top: 1px solid gray;
+    transition: all 800ms !important; 
+}
+
+.publication-text label {
+    word-wrap: break-word;
+}
+
+.header-publication {
+    align-content: left;
+}
+
+.btn-ver-mas {
+    align-content: center;
+    text-align: center;
+}
+
+/* scroll mod webkit 
+.publication-text::-webkit-scrollbar {
+    width: 4px;
+}
+
+.publication-text:hover::-webkit-scrollbar-track {
+    border-radius: 4px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+
+.publication-text:hover::-webkit-scrollbar-thumb{
+    border-radius: 50%;
+    display: inline-block;
+    padding: 2px;
+    background-color: gray;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    transition: 800ms; 
+}
+*/
+
+/*Profile*/
+
+.header-profile {
+    position: relative;
+}
+
+.avatar-profile {
+    text-align: left;
+    align-content: left;
+}
+
+.avatar-profile img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.name-surname-profile {
+    cursor: default;
+    font-weight: bold;
+    color: gray;
+    font-size: 25px;
+    padding-left: 15px;
+}
+
+.body-profile {
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+.nick-profile {
+    cursor: default;
+    font-weight: bold;
+    color: darkgray;
+    font-size: 15px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.stats-profile-content {
+    cursor: default;
+    font-weight: bold;
+    color: gray;
+    font-size: 25px;
+    padding-left: 15px;
+}
+
+

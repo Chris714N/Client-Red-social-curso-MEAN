@@ -1,0 +1,50 @@
+<div class="col-sm-8">
+
+    <h1 class="h1-strong">
+        {{title}}
+    </h1>
+
+    <div class="row"  *ngIf="user">
+        <div class="col-sm-12 header-profile">
+
+            <div class="avatar-profile pull-left">
+                <div *ngIf="user">
+                    <img src="{{ url + 'get-image-user/' + user.image}}" alt="thumb" *ngIf="user.image">
+                    <img src="assets/user.png" alt="thumb" *ngIf="!user.image">
+                </div>
+            </div>
+
+            <div class="pull-left body-profile">
+                <div>
+                    <span class="name-surname-profile">
+                        {{user.name + ' ' + user.surname}}
+                    </span>
+                </div>
+    
+                <div>
+                    <span class="nick-profile">
+                        {{user.nick}}
+                    </span>
+    
+                </div>
+
+                <div>
+                    <button class="btn btn-success pull-right">Seguir</button>
+                </div>
+            </div>
+
+            <div class="pull-left">
+                <div class="stats-profile-content">
+                    <span>test</span>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<app-sidebar (sended)="refresh($event)"></app-sidebar>
+<div class="clearfix"></div>
